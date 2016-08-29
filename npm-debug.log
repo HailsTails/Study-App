@@ -1,0 +1,109 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Node\\node.exe',
+1 verbose cli   'D:\\Node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'expressjs' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of D:\Git\Study-App\package.json
+5 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\angular\package.json
+6 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\angularjs\package.json
+7 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\bcryptjs\package.json
+8 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\body-parser\package.json
+9 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\cookie-parser\package.json
+10 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\debug\package.json
+11 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\ejs\package.json
+12 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\express\package.json
+13 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\mongoose\package.json
+14 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\mongoose-auto-increment\package.json
+15 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\mongoose-simpledb\package.json
+16 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\mongoose-type-email\package.json
+17 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\morgan\package.json
+18 verbose installManyTop reading scoped package data from D:\Git\Study-App\node_modules\serve-favicon\package.json
+19 info package.json mongoose-auto-increment@5.0.1 No license field.
+20 verbose readDependencies loading dependencies from D:\Git\Study-App\package.json
+21 silly cache add args [ 'expressjs', null ]
+22 verbose cache add spec expressjs
+23 silly cache add parsed spec Result {
+23 silly cache add   raw: 'expressjs',
+23 silly cache add   scope: null,
+23 silly cache add   name: 'expressjs',
+23 silly cache add   rawSpec: '',
+23 silly cache add   spec: 'latest',
+23 silly cache add   type: 'tag' }
+24 silly addNamed expressjs@latest
+25 verbose addNamed "latest" is being treated as a dist-tag for expressjs
+26 info addNameTag [ 'expressjs', 'latest' ]
+27 silly mapToRegistry name expressjs
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'expressjs',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   name: 'expressjs',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/expressjs
+32 verbose addNameTag registry:https://registry.npmjs.org/expressjs not in flight; fetching
+33 verbose request uri https://registry.npmjs.org/expressjs
+34 verbose request no auth needed
+35 info attempt registry request try #1 at 3:59:21 PM
+36 verbose request id f414926b793695b0
+37 http request GET https://registry.npmjs.org/expressjs
+38 http 404 https://registry.npmjs.org/expressjs
+39 verbose headers { 'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=0',
+39 verbose headers   'content-length': '2',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   date: 'Mon, 29 Aug 2016 05:59:14 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   age: '0',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-mel6523-MEL',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1472450354.612742,VS0,VE204',
+39 verbose headers   vary: 'Accept-Encoding' }
+40 silly get cb [ 404,
+40 silly get   { 'content-type': 'application/json',
+40 silly get     'cache-control': 'max-age=0',
+40 silly get     'content-length': '2',
+40 silly get     'accept-ranges': 'bytes',
+40 silly get     date: 'Mon, 29 Aug 2016 05:59:14 GMT',
+40 silly get     via: '1.1 varnish',
+40 silly get     age: '0',
+40 silly get     connection: 'keep-alive',
+40 silly get     'x-served-by': 'cache-mel6523-MEL',
+40 silly get     'x-cache': 'MISS',
+40 silly get     'x-cache-hits': '0',
+40 silly get     'x-timer': 'S1472450354.612742,VS0,VE204',
+40 silly get     vary: 'Accept-Encoding' } ]
+41 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/expressjs
+41 verbose stack     at makeError (D:\Node\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+41 verbose stack     at CachingRegistryClient.<anonymous> (D:\Node\node_modules\npm\node_modules\npm-registry-client\lib\request.js:242:14)
+41 verbose stack     at Request._callback (D:\Node\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+41 verbose stack     at Request.self.callback (D:\Node\node_modules\npm\node_modules\request\request.js:200:22)
+41 verbose stack     at emitTwo (events.js:87:13)
+41 verbose stack     at Request.emit (events.js:172:7)
+41 verbose stack     at Request.<anonymous> (D:\Node\node_modules\npm\node_modules\request\request.js:1067:10)
+41 verbose stack     at emitOne (events.js:82:20)
+41 verbose stack     at Request.emit (events.js:169:7)
+41 verbose stack     at IncomingMessage.<anonymous> (D:\Node\node_modules\npm\node_modules\request\request.js:988:12)
+42 verbose statusCode 404
+43 verbose pkgid expressjs
+44 verbose cwd D:\Git\Study-App
+45 error Windows_NT 10.0.10586
+46 error argv "D:\\Node\\node.exe" "D:\\Node\\node_modules\\npm\\bin\\npm-cli.js" "install" "expressjs"
+47 error node v4.5.0
+48 error npm  v2.15.9
+49 error code E404
+50 error 404 Registry returned 404 for GET on https://registry.npmjs.org/expressjs
+50 error 404
+50 error 404 'expressjs' is not in the npm registry.
+50 error 404 You should bug the author to publish it (or use the name yourself!)
+50 error 404 It was specified as a dependency of 'StudyApp'
+50 error 404
+50 error 404 Note that you can also install from a
+50 error 404 tarball, folder, http url, or git url.
+51 verbose exit [ 1, true ]

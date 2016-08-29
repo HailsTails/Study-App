@@ -1,4 +1,4 @@
-require('./models/db');
+require('db');
 
 var Users_Schema = new Schema({
   firstName: String,
