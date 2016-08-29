@@ -1,13 +1,33 @@
 <!DOCTYPE>
 <html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script type="text/javascript">
+  var _auth2
+    var _onGoogleLoad = function(){
+      gapi.load('auth2', function(){
+        auth2 = gapi.auth2.init({
+          CLient-id:'73713153185-ml2ui4qa12p4tpfgiuhgebpsi374gnqc.apps.googleusercontent.com'
+        }
+      )})
+    }
+  </script>
+  <script>
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
+  </script>
+  <meta name="google-signin-client_id" content='73713153185-ml2ui4qa12p4tpfgiuhgebpsi374gnqc.apps.googleusercontent.com'>
 </head>
-<meta name="google-signin-client_id" content="73713153185-ml2ui4qa12p4tpfgiuhgebpsi374gnqc.apps.googleusercontent.com	">
 <body>
-
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
+  <div>
+    <a href="#" onclick="signOut();">Sign out</a>
+  </div>
 </body>
 
 
