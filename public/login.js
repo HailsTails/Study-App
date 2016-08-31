@@ -1,4 +1,4 @@
-require("./models/users")
+require("../models/users")
 
 //set CLient ID and google auth settings
 var _auth2;
@@ -22,7 +22,7 @@ function onSignIn(googleUser) {
       if(data['aud']==client_id){
         console.log(data);
       }
-      
+
     }
   );
 
