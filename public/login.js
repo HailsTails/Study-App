@@ -1,3 +1,5 @@
+require("./models/users")
+
 //set CLient ID and google auth settings
 var _auth2;
 var client_id = "73713153185-ml2ui4qa12p4tpfgiuhgebpsi374gnqc.apps.googleusercontent.com";
@@ -20,6 +22,7 @@ function onSignIn(googleUser) {
       if(data['aud']==client_id){
         console.log(data);
       }
+      
     }
   );
 
