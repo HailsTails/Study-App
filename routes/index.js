@@ -1,14 +1,15 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var Post = mongoose.model('Post');
-var Comment = mongoose.model('Comment');
+var Post = mongoose.model('Task');
+var Comment = mongoose.model('Sub_Task');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('tasks', { title: 'Express' });
+  res.render('index', { title: 'Express' });
 });
 
+/* Set param based on a specific sub_task by ID */
 router.get('/tasks', function(){
   Task.find(function(err, tasks){
     if(err){ return next(err); }
