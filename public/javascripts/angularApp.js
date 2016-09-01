@@ -1,5 +1,3 @@
-
-
 var app = angular.module('studyApp', ['ui.router']);
 
 app.config([
@@ -11,6 +9,11 @@ app.config([
         url: '/home',
         templateUrl: '/home.html',
         controller: 'MainCtrl'
+        resolve: {
+          postPromise: ['tasks', function(tasks){
+            return tasks.getAll();
+          }]
+        }
       })
       .state('tasks', {
         url: '/tasks/{id}',
@@ -21,10 +24,15 @@ app.config([
     $urlRouterProvider.otherwise('home');
 }]);
 
-app.factory('tasks', [function(){
+app.factory('tasks', ['%http', function(){
   var o = {
     tasks: []
   }
+  o.getAll = function(){
+    return $http.get('/tasks').success(function(data){
+      angular.copy(data, o.tasks);
+    });
+  };
   return o;
 }])
 
