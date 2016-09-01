@@ -6,7 +6,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('tasks', { title: 'Express' });
 });
 
 router.get('/tasks', function(){
@@ -73,7 +73,7 @@ router.get('/tasks/:task/sub_tasks', function(req, res, next){
   });
 });
 
-/* Set param based on a specific task by ID */
+/* Set param based on a specific sub_task by ID */
 router.param('task/:task/sub_tasks/:sub_task', function(req, res, next, id, task){
   var query = Sub_Task.findById(id, task);
 
@@ -86,6 +86,7 @@ router.param('task/:task/sub_tasks/:sub_task', function(req, res, next, id, task
   });
 });
 
+/* Update to tick off a sub_task */
 router.put('/tasks/:task/sub_tasks/:sub_task/tickOff', function(){
   req.sub_task.tickOff(function(err, task){
     if(err) { return next(err); }
@@ -94,6 +95,7 @@ router.put('/tasks/:task/sub_tasks/:sub_task/tickOff', function(){
   });
 });
 
+/* get the sub_tasks of a task and populate the task with them*/
 router.get('/tasks/:task', function(req, res, next){
   req.task.populate('sub_tasks', function(err, post){
     if(err){ return next(err); }
