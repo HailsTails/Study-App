@@ -1,15 +1,15 @@
 var express = require('express');
-var mongoose = require('mongoose');
-var Post = mongoose.model('Task');
-var Comment = mongoose.model('Sub_Task');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Task = mongoose.model('Task');
+var Sub_Task = mongoose.model('Sub_Task');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', {title: "Express"});
 });
 
-/* Set param based on a specific sub_task by ID */
+/* returns a list of tasks */
 router.get('/tasks', function(){
   Task.find(function(err, tasks){
     if(err){ return next(err); }
@@ -18,7 +18,7 @@ router.get('/tasks', function(){
   });
 });
 
-/* POST to tasks page */
+/* Create a new task */
 router.post('/tasks', function(req, res, next){
   var task = new Task(req.body);
 
@@ -29,16 +29,12 @@ router.post('/tasks', function(req, res, next){
   });
 });
 
-/* Set param based on a specific task by ID */
-router.param('task', function(req,res,next,id){
-  var query = Task.findById(id);
-
-  query.exec(function (err, task){
+/* get the sub_tasks of a task and populate the task with them*/
+router.get('/tasks/:task', function(req, res, next){
+  req.task.populate('sub_tasks', function(err, post){
     if(err){ return next(err); }
-    if(!task) { return next(new Error('Can\'t find task')); }
 
-    req.task = task;
-    return next();
+    req.json(task);
   });
 });
 
@@ -49,13 +45,8 @@ router.put('/tasks/:task/tickOff', function(req, res, next){
 
     req.json(task);
   });
-});
+})
 
-
-/* GET detail of a specific task */
-router.get('/tasks/:task', function(req, res){
-  res.json(req.task);
-});
 
 /* GET sub_tasks of a specific task. */
 router.get('/tasks/:task/sub_tasks', function(req, res, next){
@@ -74,8 +65,30 @@ router.get('/tasks/:task/sub_tasks', function(req, res, next){
   });
 });
 
+/* Update to tick off a sub_task */
+router.put('/tasks/:task/sub_tasks/:sub_task/tickOff', function(){
+  req.sub_task.tickOff(function(err, task){
+    if(err) { return next(err); }
+
+    req.json(task);
+  });
+});
+
+/* Set param based on a specific task by ID */
+router.param('task', function(req,res,next,id){
+  var query = Task.findById(id);
+
+  query.exec(function (err, task){
+    if(err){ return next(err); }
+    if(!task) { return next(new Error('Can\'t find task')); }
+
+    req.task = task;
+    return next();
+  });
+});
+
 /* Set param based on a specific sub_task by ID */
-router.param('task/:task/sub_tasks/:sub_task', function(req, res, next, id, task){
+router.param('task/:task/sub_tasks', function(req, res, next, id, task){
   var query = Sub_Task.findById(id, task);
 
   query.exec(function (err, sub_task){
@@ -87,22 +100,5 @@ router.param('task/:task/sub_tasks/:sub_task', function(req, res, next, id, task
   });
 });
 
-/* Update to tick off a sub_task */
-router.put('/tasks/:task/sub_tasks/:sub_task/tickOff', function(){
-  req.sub_task.tickOff(function(err, task){
-    if(err) { return next(err); }
-
-    req.json(task);
-  });
-});
-
-/* get the sub_tasks of a task and populate the task with them*/
-router.get('/tasks/:task', function(req, res, next){
-  req.task.populate('sub_tasks', function(err, post){
-    if(err){ return next(err); }
-
-    req.json(task);
-  });
-});
 
 module.exports = router;

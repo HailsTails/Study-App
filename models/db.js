@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
-    bcrypt = require('bcrypt'),
+    //bcrypt = require('bcrypt'),
     autoIncrement = require('mongoose-auto-increment'),
     db = mongoose.createConnection("mongodb://LocalHost/StudyDB");
 require('mongoose-type-email');
